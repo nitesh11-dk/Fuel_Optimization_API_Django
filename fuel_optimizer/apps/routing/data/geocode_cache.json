@@ -1,0 +1,166 @@
+{
+  "Big Cabin, OK": {
+    "lon": -95.22348,
+    "lat": 36.537666
+  },
+  "Tomah, WI": {
+    "lon": -90.503705,
+    "lat": 43.980079
+  },
+  "Gila Bend, AZ": {
+    "lon": -112.702211,
+    "lat": 32.960027
+  },
+  "Fort Smith, AR": {
+    "lon": -94.386,
+    "lat": 35.372017
+  },
+  "Columbia, NJ": {
+    "lon": -74.385611,
+    "lat": 40.78096
+  },
+  "Mount Jackson, VA": {
+    "lon": -78.646498,
+    "lat": 38.743242
+  },
+  "Jarrell, TX": {
+    "lon": -97.606035,
+    "lat": 30.82639
+  },
+  "Shorter, AL": {
+    "lon": -85.906,
+    "lat": 32.395
+  },
+  "Seymour, IN": {
+    "lon": -85.888222,
+    "lat": 38.959251
+  },
+  "Council Bluffs, IA": {
+    "lon": -95.864271,
+    "lat": 41.239106
+  },
+  "Sterling, ND": {
+    "lon": -100.2915,
+    "lat": 46.81388
+  },
+  "Montrose, CO": {
+    "lon": -107.866048,
+    "lat": 38.474573
+  },
+  "Laurel, DE": {
+    "lon": -75.568254,
+    "lat": 38.555203
+  },
+  "New Castle, DE": {
+    "lon": -75.566167,
+    "lat": 39.664685
+  },
+  "Ellenton, FL": {
+    "lon": -82.52277,
+    "lat": 27.526708
+  },
+  "Dumont, CO": {
+    "lon": -105.60028,
+    "lat": 39.76471
+  },
+  "Crawfordville, GA": {
+    "lon": -82.896546,
+    "lat": 33.554542
+  },
+  "Bridgeport, MI": {
+    "lon": -83.89361,
+    "lat": 43.37888
+  },
+  "Lupton, AZ": {
+    "lon": -109.052124,
+    "lat": 35.354882
+  },
+  "Eloy, AZ": {
+    "lon": -111.596545,
+    "lat": 32.778688
+  },
+  "Henderson, KY": {
+    "lon": -87.496323,
+    "lat": 37.780074
+  },
+  "Effingham, IL": {
+    "lon": -88.589858,
+    "lat": 39.065282
+  },
+  "Atkinson, IL": {
+    "lon": -90.036814,
+    "lat": 41.464864
+  },
+  "Daleville, IN": {
+    "lon": -85.555762,
+    "lat": 40.118464
+  },
+  "Fort Wayne, IN": {
+    "lon": -85.12887,
+    "lat": 41.113154
+  },
+  "Gothenburg, NE": {
+    "lon": -100.100822,
+    "lat": 40.930235
+  },
+  "Jacksonville, FL": {
+    "lon": -81.660992,
+    "lat": 30.369914
+  },
+  "Denham Springs, LA": {
+    "lon": -90.960085,
+    "lat": 30.469044
+  },
+  "Lake Station, IN": {
+    "lon": -87.25305,
+    "lat": 41.579279
+  },
+  "Hebron, IN": {
+    "lon": -87.198978,
+    "lat": 41.321194
+  },
+  "Nacogdoches, TX": {
+    "lon": -94.610755,
+    "lat": 31.643153
+  },
+  "Moorcroft, WY": {
+    "lon": -104.949951,
+    "lat": 44.264464
+  },
+  "Latimer, IA": {
+    "lon": -93.365608,
+    "lat": 42.76361
+  },
+  "Clear Lake, IA": {
+    "lon": -93.365025,
+    "lat": 43.13372
+  },
+  "Stuart, IA": {
+    "lon": -94.31861,
+    "lat": 41.500039
+  },
+  "West Memphis, AR": {
+    "lon": -90.185285,
+    "lat": 35.1514
+  },
+  "Atwood, CO": {
+    "lon": -103.274594,
+    "lat": 40.549574
+  },
+  "Salina, KS": {
+    "lon": -97.610411,
+    "lat": 38.82358
+  },
+  "Highland, IN": {
+    "lon": -87.461181,
+    "lat": 41.551826
+  },
+  "Sardinia, OH": {
+    "lon": -83.80519,
+    "lat": 39.004754
+  },
+  "Ocean Springs, MS": {
+    "lon": -88.788015,
+    "lat": 30.404027
+  }
+}
