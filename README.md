@@ -4,6 +4,7 @@
 
 This project is a robust **Django REST API** built to perform intelligent route optimization and fuel cost minimization. Mimicking enterprise-grade logistics systems, it calculates the most cost-effective fueling strategy for a given journey across the United States.
 
+
 The API performs the following operations:
 * Accepts a `start` and `end` location via HTTP POST.
 * Fetches the **real driving route** and road geometry using the OpenRouteService API.
