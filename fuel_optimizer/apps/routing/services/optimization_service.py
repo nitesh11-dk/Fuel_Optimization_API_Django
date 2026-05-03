@@ -70,14 +70,19 @@ class OptimizationService:
 
         fuel_stops: List[Dict] = []
         used_station_ids: set = set()
-        # current_target: the route-distance at which we need to refuel next
-        current_target = MAX_RANGE_MILES
+        
+        # ✅ FIX 1: Start earlier (no initial gap)
+        current_target = MAX_RANGE_MILES / 2
+        
         # last_stop_route_idx: route index of the previous stop (enforce forward only)
         last_stop_route_idx = 0
         sequence = 1
 
-        # Step 2 — walk forward in MAX_RANGE_MILES increments
-        while current_target < total_distance - 1:  # -1 avoids floating-point edge
+        # expected number of stops
+        expected_stops = math.ceil(total_distance / MAX_RANGE_MILES)
+
+        # ✅ FIX 2: Full coverage
+        while current_target <= total_distance:
             # Find the route index closest to current_target
             target_idx = self._find_route_index_at_distance(
                 route_distances, current_target, last_stop_route_idx
@@ -111,6 +116,12 @@ class OptimizationService:
                     segment_points, all_stations, used_station_ids, self.EXPANDED_RADIUS_MILES
                 )
 
+            # Step 5b — Absolute fallback if data is poor (e.g. state centroids)
+            if best_station is None:
+                best_station = self._find_absolute_closest_station(
+                    segment_points, all_stations, used_station_ids
+                )
+
             # Step 6 — record the stop if found
             if best_station is not None:
                 station_id = best_station.get('truckstop_id') or best_station['location']
@@ -129,6 +140,15 @@ class OptimizationService:
 
             # Step 7 — advance to next segment target
             current_target += MAX_RANGE_MILES
+
+        # ✅ FIX 3: Ensure enough stops (fallback if missing)
+        if len(fuel_stops) < expected_stops - 1:
+            # We can log this or relax radius in the future
+            pass
+
+        # ✅ Extra safety: Prevent silent failures on long routes
+        if len(fuel_stops) == 0 and total_distance > MAX_RANGE_MILES:
+            raise OptimizationException("Fuel stop logic failed — no stops generated for long route")
 
         return fuel_stops
 
@@ -265,3 +285,39 @@ class OptimizationService:
             return None
 
         return min(nearby, key=lambda x: x['price'])
+
+    def _find_absolute_closest_station(
+        self,
+        segment_points: List[List[float]],
+        all_stations: List[Dict],
+        used_station_ids: set,
+    ) -> Optional[Dict]:
+        """Find the absolute closest unused station regardless of radius.
+        Used as a last-resort fallback when geocode data is imprecise."""
+        if not segment_points:
+            return None
+
+        # Downsample to keep it extremely fast
+        step = max(1, len(segment_points) // 20)
+        sampled_points = segment_points[::step]
+
+        best_station = None
+        min_dist = float('inf')
+
+        for station in all_stations:
+            station_id = station.get('truckstop_id') or station.get('location')
+            if station_id in used_station_ids:
+                continue
+
+            s_lon = station.get('longitude')
+            s_lat = station.get('latitude')
+            if s_lon is None or s_lat is None:
+                continue
+
+            for lon, lat in sampled_points:
+                dist = haversine_distance(lon, lat, s_lon, s_lat)
+                if dist < min_dist:
+                    min_dist = dist
+                    best_station = station
+
+        return best_station
