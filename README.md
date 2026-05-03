@@ -14,6 +14,10 @@ The API performs the following operations:
   * **Tank Capacity**: 50 gallons.
   * **Maximum Range**: ~500 miles per tank.
 
+## 🗺️ STEP-BY-STEP FLOW DIAGRAM
+
+![Flow Diagram](../diagrams/mermaid-diagram.png)
+
 ---
 
 ## ⚙️ TECHNOLOGIES USED
@@ -98,31 +102,6 @@ The optimization engine follows a strict procedural flow:
 * **Fuel Needed**: Evaluated linearly using `total_distance / 10` (since the vehicle gets 10 mpg).
 * **Maximum Range**: Evaluated as `10 mpg × 50 gallons = 500 miles` per tank.
 * **Expected Stops**: Mathematically estimated using `ceil(total_distance / 500)`.
-
----
-
-## 🗺️ STEP-BY-STEP FLOW DIAGRAM (TEXT FORMAT)
-
-```text
-[User Request]
-      ↓
-[Route API Call]
-      ↓
-[Route Geometry + Distance]
-      ↓
-[Distance Check: <= 500 miles?]
-      ├─ YES → Return no stops
-      ↓
-      NO → Segment Route into 500-mile windows
-      ↓
-[Find Nearby Fuel Stations (Haversine 50mi)]
-      ↓
-[Pick Cheapest Station per Segment]
-      ↓
-[Calculate Total Fuel Cost]
-      ↓
-[Return JSON Response]
-```
 
 ---
 
