@@ -19,7 +19,7 @@ The API performs the following operations:
 
 ![Flow Diagram](https://raw.githubusercontent.com/nitesh11-dk/Fuel_Optimization_API_Django/807543c8cc7e09a40f3870dbcc3d83a6d38f88ff/diagrams/mermaid-diagram.png)
 
-![Segmentation Fuel Stop Selection](https://raw.githubusercontent.com/nitesh11-dk/Fuel_Optimization_API_Django/807543c8cc7e09a40f3870dbcc3d83a6d38f88ff/diagrams/segmention_fuel_stop_selection.png)
+
 
 ---
 
